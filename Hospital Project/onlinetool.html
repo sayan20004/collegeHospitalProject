@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>MedCare - Online Tools</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f5f5dc;
+            color: #4b4b4b;
+        }
+        .tool-card {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #394149;
+            color: white;
+            padding: 20px 0;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">
+                <svg id="logo-70" width="78" height="30" viewBox="0 0 78 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.5147 0C15.4686 0 12.5473 1.21005 10.3934 3.36396L3.36396 10.3934C1.21005 12.5473 0 15.4686 0 18.5147C0 24.8579 5.14214 30 11.4853 30C14.5314 30 17.4527 28.7899 19.6066 26.636L24.4689 21.7737C24.469 21.7738 24.4689 21.7736 24.4689 21.7737L38.636 7.6066C39.6647 6.57791 41.0599 6 42.5147 6C44.9503 6 47.0152 7.58741 47.7311 9.78407L52.2022 5.31296C50.1625 2.11834 46.586 0 42.5147 0C39.4686 0 36.5473 1.21005 34.3934 3.36396L15.364 22.3934C14.3353 23.4221 12.9401 24 11.4853 24C8.45584 24 6 21.5442 6 18.5147C6 17.0599 6.57791 15.6647 7.6066 14.636L14.636 7.6066C15.6647 6.57791 17.0599 6 18.5147 6C20.9504 6 23.0152 7.58748 23.7311 9.78421L28.2023 5.31307C26.1626 2.1184 22.5861 0 18.5147 0Z" class="ccustom" fill="#394149"></path>
+                    <path d="M39.364 22.3934C38.3353 23.4221 36.9401 24 35.4853 24C33.05 24 30.9853 22.413 30.2692 20.2167L25.7982 24.6877C27.838 27.8819 31.4143 30 35.4853 30C38.5314 30 41.4527 28.7899 43.6066 26.636L62.636 7.6066C63.6647 6.57791 65.0599 6 66.5147 6C69.5442 6 72 8.45584 72 11.4853C72 12.9401 71.4221 14.3353 70.3934 15.364L63.364 22.3934C62.3353 23.4221 60.9401 24 59.4853 24C57.0498 24 54.985 22.4127 54.269 20.2162L49.798 24.6873C51.8377 27.8818 55.4141 30 59.4853 30C62.5314 30 65.4527 28.7899 67.6066 26.636L74.636 19.6066C76.7899 17.4527 78 14.5314 78 11.4853C78 5.14214 72.8579 0 66.5147 0C63.4686 0 60.5473 1.21005 58.3934 3.36396L39.364 22.3934Z" class="ccustom" fill="#394149"></path>
+                </svg>
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Online Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html" id="register">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Tools Content -->
+        <div class="text-center mb-5">
+            <h1>Online Tools</h1>
+            <p class="lead">Utilize Our Range of Health Calculators and Tools</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- BMI Calculator -->
+            <div class="col">
+                <div class="tool-card card">
+                    <div class="card-body">
+                        <h5 class="card-title">BMI Calculator</h5>
+                        <input type="number" class="form-control mb-3" id="bmi-height" placeholder="Height in cm">
+                        <input type="number" class="form-control mb-3" id="bmi-weight" placeholder="Weight in kg">
+                        <button class="btn btn-dark w-100" onclick="calculateBMI()">Calculate BMI</button>
+                        <p class="mt-3" id="bmi-result"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Calorie Calculator -->
+            <div class="col">
+                <div class="tool-card card">
+                    <div class="card-body">
+                        <h5 class="card-title">Calorie Calculator</h5>
+                        <input type="number" class="form-control mb-3" id="calorie-age" placeholder="Age">
+                        <input type="number" class="form-control mb-3" id="calorie-weight" placeholder="Weight in kg">
+                        <input type="number" class="form-control mb-3" id="calorie-height" placeholder="Height in cm">
+                        <select class="form-select mb-3" id="calorie-gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <button class="btn btn-dark w-100" onclick="calculateCalories()">Calculate Calories</button>
+                        <p class="mt-3" id="calorie-result"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Water Intake Calculator -->
+            <div class="col">
+                <div class="tool-card card">
+                    <div class="card-body">
+                        <h5 class="card-title">Water Intake Calculator</h5>
+                        <input type="number" class="form-control mb-3" id="water-weight" placeholder="Weight in kg">
+                        <button class="btn btn-dark w-100" onclick="calculateWaterIntake()">Calculate Water Intake</button>
+                        <p class="mt-3" id="water-result"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="left-section">
+                    <p>MedPool Copyrights ©</p>
+                    <p>HEALING LIVES, RESTORING SMILES:<br>YOUR WELLNESS BEGINS WITH US</p>
+                    <p>Mail<br>hello@medpool.com</p>
+                </div>
+                <div class="center-section">
+                    <img src="assets/images/twokids.png" alt="Image" class="footer-image">
+                </div>
+                <div class="right-section">
+                    <div class="resources">
+                        <h5>RESOURCES</h5>
+                        <p><a href="onlinetool.html">Online Tool</a></p>
+                    </div>
+                    <div class="legal">
+                        <h5>LEGAL</h5>
+                        <p>Terms<br>Privacy<br>Cookies<br>Settings</p>
+                    </div>
+                    <p>Instagram<br>@medcl.in</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>MEDCARE</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function calculateBMI() {
+            const height = document.getElementById('bmi-height').value / 100;
+            const weight = document.getElementById('bmi-weight').value;
+            const bmi = (weight / (height * height)).toFixed(2);
+            document.getElementById('bmi-result').innerText = `Your BMI is ${bmi}`;
+        }
+
+        function calculateCalories() {
+            const age = document.getElementById('calorie-age').value;
+            const weight = document.getElementById('calorie-weight').value;
+            const height = document.getElementById('calorie-height').value;
+            const gender = document.getElementById('calorie-gender').value;
+            let bmr;
+
+            if (gender === 'male') {
+                bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+            } else {
+                bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+            }
+
+            const calories = bmr.toFixed(2);
+            document.getElementById('calorie-result').innerText = `You need ${calories} calories per day`;
+        }
+
+        function calculateWaterIntake() {
+            const weight = document.getElementById('water-weight').value;
+            const waterIntake = (weight * 0.033).toFixed(2);
+            document.getElementById('water-result').innerText = `You should drink ${waterIntake} liters of water per day`;
+        }
+    </script>
+</body>
+</html>
